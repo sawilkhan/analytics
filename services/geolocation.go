@@ -9,6 +9,7 @@ import (
 )
 
 func GetLocation(ip string) (models.Location, error) {
+	fmt.Printf("get location called for ip=%s", ip)
 	apiUrl := fmt.Sprintf("https://api.ipgeolocation.io/ipgeo?apiKey=f2ea611e79f14c9795576a52b3e6a048&ip=%s&fields=geo", ip)
 	res, err := http.Get(apiUrl)
 	if err != nil{

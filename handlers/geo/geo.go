@@ -10,6 +10,7 @@ import (
 )
 
 func GeoHandler(w http.ResponseWriter, r *http.Request){
+
 	ip := r.RemoteAddr
 	if forwarded := r.Header.Get("X-Forwarded-For"); forwarded != ""{
 		ip = strings.Split(forwarded, ",")[0]
@@ -25,6 +26,5 @@ func GeoHandler(w http.ResponseWriter, r *http.Request){
 	response := map[string]string{
 		"status": "success",
 	}
-	
 	json.NewEncoder(w).Encode(response)	
 }
